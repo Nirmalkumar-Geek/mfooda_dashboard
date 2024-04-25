@@ -1,0 +1,40 @@
+
+#order-group-2{
+
+    border-top: 1px solid #b3b3b3;
+    
+}
+
+#order-group-3{
+
+    border-top: 1px solid #b3b3b3;
+    
+}
+
+#order-total{
+
+    border-top: 1px solid #b3b3b3;
+    
+}
+
+#order-item{
+
+    font-family: 'poppins, sans-serif';
+    color: '#777';
+    font-size: '8px';
+    font-weight: '200px';
+    line-height: '18.375px';
+
+}
+
+#order-title{
+
+    font-family: 'poppins, sans-serif';
+    color: '#3d4152';
+    font-size: '15px';
+    font-weight: '500px';
+
+}
+
+
+

@@ -159,12 +159,11 @@ const UsersSlice = createSlice({
     name: "Users",
     initialState: {
         all_users: {},
-        role_filter: "all",
         username: "",
         email: "",
         password: "",
         confirmpassword: "",
-        role: "",
+        phone_number: "",
 
 
 
@@ -176,9 +175,9 @@ const UsersSlice = createSlice({
             state.all_users = action.payload
 
         },
-        setRoleFilter: (state, action) => {
+        setAdminPhoneNumber: (state, action) => {
 
-            state.role_filter = action.payload
+            state.phone_number = action.payload
 
         },
         setAdminUserName: (state, action) => {
@@ -201,11 +200,7 @@ const UsersSlice = createSlice({
             state.confirmpassword = action.payload
 
         },
-        setAdminRole: (state, action) => {
-
-            state.role = action.payload
-
-        },
+        
 
 
     }
@@ -331,7 +326,7 @@ export const { isAuthenticated, setEmail, setPassword } = AuthSlice.actions
 export const { setItems, removeItem, setItemName, setItemPrice, setItemImage } = MenuSlice.actions
 export const { setUserName, setEmailAddress, setPhoneNumber, setAddress, setRole, setUserID, setRestaurantID } = ProfileSlice.actions
 export const { resetForm,setRestaurants, setConfirmPassword, setResPhoneNumber, setFile, setDescription, setRestaurantName, setResPassword, setResEmail, setResUserName } = RestaurantSlice.actions
-export const { setAllUsers, setRoleFilter, setAdminRole, setAdminPassword, setAdminEmail, setAdminUserName, setAdminConfirmPassword } = UsersSlice.actions
+export const { setAdminPhoneNumber,setAllUsers, setAdminPassword, setAdminEmail, setAdminUserName, setAdminConfirmPassword } = UsersSlice.actions
 
 export default rootReducer;
 

@@ -16,8 +16,10 @@ const Menu = () => {
     const [file,setFile] = useState(null)
 
     const getItems = async (store_id) => {
+        console.log(store_id)
         try {
             const result = await axios.get("https://api.selfmade.city/api/menu/" + store_id);
+            console.log(result)
             if (result.data && result.data.data) {
                 dispatch(setItems(result.data.data));
             }
@@ -50,6 +52,18 @@ const Menu = () => {
 
 
     }, [file]);
+
+    useEffect(() =>{
+
+        console.log("menu mount")
+
+        return () =>{
+            console.log("menu un mount")
+
+            dispatch(setItems({}));
+        }
+
+    },[])
 
 
     const handleAddItem = async () => {
@@ -91,7 +105,7 @@ const Menu = () => {
                     {Object.keys(items).map((key) => {
                         const item = items[key];
                         return (
-                            <CCol className="mt-5" key={key}>
+                            <CCol className="mt-5" xs={12} sm={6} md={4} lg={3} key={key}>
                                 <CCard style={{ width: '18rem' }}>
                                     <CCardImage style={{ width: '18rem', height: '200px' }} orientation="top" src={"https://api.selfmade.city" + item.img_path} />
                                     <CCardBody>

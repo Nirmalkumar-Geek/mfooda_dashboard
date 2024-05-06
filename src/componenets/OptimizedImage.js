@@ -22,13 +22,13 @@ const OptimizedImage = ({ src, alt, title }) => {
     return (
         <div >
             {loading ? (
-                <Skeleton count={1} style={{ width: '17rem', height: '13rem', borderRadius: '18px' }} className="w-100" />
+                <Skeleton count={1} style={{ width: '17rem', height: '13rem',  }} className="w-100" />
             ) : (
                 <img
                     src={src}
                     alt={alt}
                     title={title}
-                    style={{ height: '13rem', borderRadius: '18px' }}
+                    style={{ height: '13rem',  }}
                     className="w-100"
                 />
             )}

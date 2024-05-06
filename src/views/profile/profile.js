@@ -61,7 +61,7 @@ const Profile = () => {
                                 <CFormInput disabled placeholder={phone_number} />
                             </CCardBody>
                             <CCardFooter className='text-center'>
-                                <CButton>Edit</CButton>
+                                
                             </CCardFooter>
                         </CCard>
                     </CCol>

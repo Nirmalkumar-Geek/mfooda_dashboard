@@ -17,17 +17,26 @@ const Orders = () => {
 
     const getOrders = async () => {
 
+        try{
 
-        const result = await axios.get('https://api.selfmade.city/api/admin/orders/' + profile.restaurant_id)
+            const result = await axios.get('https://api.selfmade.city/api/admin/orders/' + profile.restaurant_id)
 
 
-        if (result.data && result.data.data) {
+            if (result.data && result.data.data) {
 
-            dispatch(setOrders(result.data.data))
+                dispatch(setOrders(result.data.data))
+
+            }
+
+        }catch(error){
+
+
+            console.log(error)
 
         }
 
     }
+
 
     const updateStatus = async (order_id) =>{
 
@@ -43,6 +52,14 @@ const Orders = () => {
 
 
     }
+
+    useEffect(()=>{
+
+        const pollingInterval = setInterval(getOrders, 5000);
+
+        return () => clearInterval(pollingInterval);
+
+    },[])
 
     useEffect(()=>{
 
@@ -122,7 +139,7 @@ const Orders = () => {
                                                 </div >
                                                 <div id='order-group-2' className='mt-3'>
                                                     <div id='order-title' className='mt-2'>Delivery Address</div>
-                                                    <span id='order-item'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</span>
+                                                    <span id='order-item'>{orders[selected_order].address}</span>
                                                 </div>
                                                 <div id='order-group-3' className='mt-3'>
                                                     <div id='order-title' className='mt-2'>Order Menu</div>

@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { VerifyAccessToken } from '../../componenets/Authentication';
 import { setUserID, setRole, isAuthenticated, setRestaurantID } from '../../reducers';
 import { useDispatch, useSelector } from "react-redux";
@@ -20,14 +20,14 @@ const ADashboard = () => {
 
     const dispatch = useDispatch();
     const profile = useSelector((state) => state.rootReducer.profile);
-    const [dashboard,setDashboard] = useState({})
+    const [dashboard, setDashboard] = useState({})
 
-    const getDashboard = async () =>{
+    const getDashboard = async () => {
 
 
-        try{
+        try {
 
-            if(profile.role === "admin"){
+            if (profile.role === "admin") {
 
                 const result = await axios.get('https://api.selfmade.city/api/admin/dashboard/' + profile.role)
 
@@ -42,9 +42,9 @@ const ADashboard = () => {
 
                 }
 
-            } else if (profile.role === "owner"){
+            } else if (profile.role === "owner") {
 
-                const result = await axios.get('https://api.selfmade.city/api/admin/dashboard/' + profile.role+'/'+profile.restaurant_id)
+                const result = await axios.get('https://api.selfmade.city/api/admin/dashboard/' + profile.role + '/' + profile.restaurant_id)
 
                 if (result.data && result.data.status === "success") {
 
@@ -60,7 +60,7 @@ const ADashboard = () => {
             }
 
 
-        }catch(error){
+        } catch (error) {
 
             console.log(error)
 
@@ -80,9 +80,9 @@ const ADashboard = () => {
 
         <CContainer fluid className='px-4'>
             {
-                (()=>{
+                (() => {
 
-                    switch(profile.role){
+                    switch (profile.role) {
 
                         case 'admin':
                             return (
@@ -131,7 +131,7 @@ const ADashboard = () => {
                                 )
                             )
                         case 'owner':
-                            return(
+                            return (
 
                                 <CRow className='g-3 my-2'>
                                     <CCol className='col-md-3  text-center'>
@@ -165,7 +165,7 @@ const ADashboard = () => {
                                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                             <div>
                                                 <h3 className="fs-2">{dashboard.revenue}</h3>
-                                                <p className="fs-5">Ravenue</p>
+                                                <p className="fs-5">Revenue</p>
                                             </div>
                                             <FaChartLine size={90} className="fs-1 primary-text p-3" />
                                         </div>

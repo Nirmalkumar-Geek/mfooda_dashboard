@@ -200,18 +200,17 @@ const Restaurant = () => {
                             <CCol key={key} className="mt-5" xs={12} sm={6} md={4} lg={3}>
 
                                 <CCard style={{ width: '18rem' }}>
-                                    
+
                                     <CCardHeader className="d-flex justify-content-between align-items-center">
                                         <div style={{ display: 'flex', alignItems: 'center' }} >
                                             <MdStars color='green' size='20' />
                                             <span style={{ fontSize: '18px', marginLeft: '3px', marginRight: '3px', fontStyle: 'bold' }} className="custom-span">{restaurant.rating}</span>
                                         </div>
                                         <CDropdown variant="nav-item" style={{ listStyle: "none" }}>
-                                            <CDropdownToggle placement="bottom-end" className="py-0" caret={false} > 
+                                            <CDropdownToggle placement="bottom-end" className="py-0" caret={false} >
                                                 <BsThreeDotsVertical />
                                             </CDropdownToggle>
                                             <CDropdownMenu>
-                                                <CDropdownItem href="#">Edit</CDropdownItem>
                                                 <CDropdownItem href="#" onClick={() => { deleteRestaurant(key) }}>Remove</CDropdownItem>
                                             </CDropdownMenu>
                                         </CDropdown>
@@ -226,7 +225,7 @@ const Restaurant = () => {
                                         </CCardText>
 
                                     </CCardBody>
-                               
+
                                 </CCard>
 
 

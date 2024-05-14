@@ -117,7 +117,7 @@ const Restaurant = () => {
 
     const getRestaurants = async () => {
         try {
-            const result = await axios.get("https://api.selfmade.city/api/restaurants/");
+            const result = await axios.get(process.env.REACT_APP_API_HOST+"/api/restaurants/");
             console.log("get result")
             console.log(result)
             if (result.data) {
@@ -142,7 +142,7 @@ const Restaurant = () => {
             formData.append('username', username)
             formData.append('email', email)
             formData.append('password', password)
-            const result = await axios.post("https://api.selfmade.city/api/restaurants/", formData, {
+            const result = await axios.post(process.env.REACT_APP_API_HOST+"/api/restaurants/", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -169,7 +169,7 @@ const Restaurant = () => {
 
     const deleteRestaurant = async (id) => {
         try {
-            const result = await axios.delete("https://api.selfmade.city/api/restaurants/" + id);
+            const result = await axios.delete(process.env.REACT_APP_API_HOST+"/api/restaurants/" + id);
             console.log(result)
             if (result.data.status === "success") {
                 addToast(delete_success_toast)
@@ -216,7 +216,7 @@ const Restaurant = () => {
                                         </CDropdown>
                                     </CCardHeader>
 
-                                    <OptimizedImage src={"https://api.selfmade.city" + restaurant.banner_path} />
+                                    <OptimizedImage src={process.env.REACT_APP_API_HOST + restaurant.banner_path} />
 
                                     <CCardBody >
                                         <CCardTitle>{restaurant.name}</CCardTitle>

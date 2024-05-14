@@ -30,7 +30,7 @@ function App() {
 
         if (verify_access_token.data.role === "owner") {
 
-          const get_restaurant_id = await axios.get('https://api.selfmade.city/api/restaurants/owner/'+verify_access_token.data.id)
+          const get_restaurant_id = await axios.get(process.env.REACT_APP_API_HOST+'/api/restaurants/owner/'+verify_access_token.data.id)
 
           console.log(get_restaurant_id)
 

@@ -18,7 +18,7 @@ const Profile = () => {
 
     const getProfile = async (id) => {
         try {
-            const result = await axios.get("https://api.selfmade.city/api/admin/profile/" + id);
+            const result = await axios.get(process.env.REACT_APP_API_HOST+"/api/admin/profile/" + id);
             if (result.data && result.data.data) {
 
                 dispatch(setUserName(result.data.data.username))

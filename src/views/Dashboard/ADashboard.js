@@ -29,7 +29,7 @@ const ADashboard = () => {
 
             if (profile.role === "admin") {
 
-                const result = await axios.get('https://api.selfmade.city/api/admin/dashboard/' + profile.role)
+                const result = await axios.get(process.env.REACT_APP_API_HOST+'/api/admin/dashboard/' + profile.role)
 
                 if (result.data && result.data.status === "success") {
 
@@ -44,7 +44,7 @@ const ADashboard = () => {
 
             } else if (profile.role === "owner") {
 
-                const result = await axios.get('https://api.selfmade.city/api/admin/dashboard/' + profile.role + '/' + profile.restaurant_id)
+                const result = await axios.get(process.env.REACT_APP_API_HOST+'/api/admin/dashboard/' + profile.role + '/' + profile.restaurant_id)
 
                 if (result.data && result.data.status === "success") {
 

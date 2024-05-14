@@ -19,7 +19,7 @@ const Orders = () => {
 
         try{
 
-            const result = await axios.get('https://api.selfmade.city/api/admin/orders/' + profile.restaurant_id)
+            const result = await axios.get(process.env.REACT_APP_API_HOST+'/api/admin/orders/' + profile.restaurant_id)
 
 
             if (result.data && result.data.data) {
@@ -41,7 +41,7 @@ const Orders = () => {
     const updateStatus = async (order_id) =>{
 
         const payload = { "order_id": order_id }
-        const result = await axios.put('https://api.selfmade.city/api/orders/', payload)
+        const result = await axios.put(process.env.REACT_APP_API_HOST+'/api/orders/', payload)
 
         setUpdate(!update)
         if (result.data && result.data.data) {

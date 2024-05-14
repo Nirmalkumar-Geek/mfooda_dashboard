@@ -13,7 +13,7 @@ const Reviews = () =>{
 
         try{
 
-            const result = await axios.get('https://api.selfmade.city/api/admin/orders/reviews/' + profile.restaurant_id)
+            const result = await axios.get(process.env.REACT_APP_API_HOST+'/api/admin/orders/reviews/' + profile.restaurant_id)
 
             console.log(result)
 

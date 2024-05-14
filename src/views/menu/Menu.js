@@ -18,7 +18,7 @@ const Menu = () => {
     const getItems = async (store_id) => {
         console.log(store_id)
         try {
-            const result = await axios.get("https://api.selfmade.city/api/menu/" + store_id);
+            const result = await axios.get(process.env.REACT_APP_API_HOST+"/api/menu/" + store_id);
             console.log(result)
             if (result.data && result.data.data) {
                 dispatch(setItems(result.data.data));
@@ -31,7 +31,7 @@ const Menu = () => {
     const deleteItem = async (item_id) => {
         try {
             console.log(item_id)
-            const result = await axios.delete("https://api.selfmade.city/api/menu/" + item_id,);
+            const result = await axios.delete(process.env.REACT_APP_API_HOST+"/api/menu/" + item_id,);
             console.log(result)
             if (result.data) {
                 dispatch(removeItem(item_id));
@@ -74,7 +74,7 @@ const Menu = () => {
             formData.append('file', file)
             formData.append('price',details.item_price)
             formData.append('restaurant_id',restaurant_id)
-            const result = await axios.post("https://api.selfmade.city/api/menu/", formData, {
+            const result = await axios.post(process.env.REACT_APP_API_HOST+"/api/menu/", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }})
@@ -107,7 +107,7 @@ const Menu = () => {
                         return (
                             <CCol className="mt-5" xs={12} sm={6} md={4} lg={3} key={key}>
                                 <CCard style={{ width: '18rem' }}>
-                                    <CCardImage style={{ width: '18rem', height: '200px' }} orientation="top" src={"https://api.selfmade.city" + item.img_path} />
+                                    <CCardImage style={{ width: '18rem', height: '200px' }} orientation="top" src={process.env.REACT_APP_API_HOST + item.img_path} />
                                     <CCardBody>
                                         <CCardTitle>{item.item_name}</CCardTitle>
                                         <CCardText>{item.price} RM</CCardText>

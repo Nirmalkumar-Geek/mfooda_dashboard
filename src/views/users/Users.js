@@ -40,7 +40,7 @@ const Users = () => {
   const getAllUsers = async () => {
     try {
       const result = await axios.get(
-        "https://api.selfmade.city/api/admin/users"
+        process.env.REACT_APP_API_HOST+"/api/admin/users"
       );
 
       if (result.data) {
@@ -56,7 +56,7 @@ const Users = () => {
     try{
 
     
-      const result = await axios.delete("https://api.selfmade.city/api/admin/users/" + user_id);
+      const result = await axios.delete(process.env.REACT_APP_API_HOST+"/api/admin/users/" + user_id);
       console.log(result.data)
       if (result.data) {
 
@@ -86,7 +86,7 @@ const Users = () => {
         "password": password,
         "confirmpassword": confirmpassword,
       }
-      const result = await axios.post("https://api.selfmade.city/api/auth/admins/registration", details);
+      const result = await axios.post(process.env.REACT_APP_API_HOST+"/api/auth/admins/registration", details);
 
       if (result.data) {
 

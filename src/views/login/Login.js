@@ -61,7 +61,7 @@ const Login = () => {
       };
 
       const result = await axios.post(
-        "https://api.selfmade.city/api/auth/admins/signin",
+        process.env.REACT_APP_API_HOST+"/api/auth/admins/signin",
         user_details
       );
 
